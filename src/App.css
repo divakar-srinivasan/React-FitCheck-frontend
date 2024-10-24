@@ -78,6 +78,16 @@
     position: relative;
     overflow: hidden; 
   }
+  .bg-goals {
+    background-image: url('./images//bg-goals.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+
+  }.bg-color-goals{background-color: rgba(255, 255, 255, 1);}
   .about-bg {
     background-image: url('./images/eventix-bg1.png');
     background-size: cover;

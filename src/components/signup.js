@@ -29,14 +29,14 @@ const Signup = () => {
     }
 
     try{
-      const res = await axios.post('http://localhost:5000/api/users/login', formData)
+      const res = await axios.post('http://localhost:5000/api/users/signup', formData)
       console.log(res);
       console.log('inseted Succesfully')
     } catch(err){
       console.log('Error in inserting', err); 
     }
 
-    navigate('/events')
+    navigate('/goals')
   };
 
   const logoTransition = useRef(null);
@@ -123,7 +123,7 @@ const Signup = () => {
       ease: 'power2.out',
     })
     t1.to(bg.current,{
-      x:'-100%',
+      y:'-100%',
       duration:2,
       ease: 'power2.out',
     })
@@ -146,12 +146,12 @@ const Signup = () => {
     <>
     <div className='flex relative h-screen w-full'>
       <div ref={bg} className="absolute z-10 h-full w-full bg-intro flex flex-col items-center">
+      
+      <div className=' flex mt-96 flex-col items-center gap-5'>
       <img ref={logoTransition} src={logo} alt='loading' className='w-72 h-36' />
-      <div className='p-10 mt-20 flex flex-col items-center gap-5'>
-        <h1 ref={welcome} className='font-bold text-custom-red text-5xl font-serif'>Fit Check</h1>
+        <h1 ref={welcome} className='font-bold text-custom-red text-5xl font-serif'>Welcome</h1>
         <h1 ref={textRef} className='text-white font-bebas text-5xl text-center'>.</h1>
-        <h1 ref={pRef} className='mt-32 p-4 text-gray-200 font-semibold text-center'> Your ultimate online companion to elevate your fitness journey. 🚀💪</h1>
-
+        <h1 ref={pRef} className='p-4 text-gray-200 font-semibold text-center'> Your ultimate online companion to elevate your fitness journey. 🚀💪</h1>
       </div>
       </div>
     <div className='bg-img z-0 h-screen absolute '>

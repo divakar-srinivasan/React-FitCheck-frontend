@@ -1,97 +1,102 @@
-import React, { useState ,useEffect , useRef } from "react";
-import logo from "../images/logo.png";
-import { IoMenu } from "react-icons/io5";
-import { IoMdContact } from "react-icons/io";
-import { Link, Outlet } from "react-router-dom";
-import { MdEmojiEvents } from "react-icons/md";
-import { GrWorkshop } from "react-icons/gr";
-import { RiContactsFill } from "react-icons/ri";
-import { FcAbout } from "react-icons/fc";
-import gsap from 'gsap'
-const Home = () => {
-  const [toggleMenu, setToggleMenu] = useState(false);
-  const listRef1 = useRef(null);
-  const listRef2 = useRef(null);
-  const listRef3 = useRef(null);
-  const listRef4 = useRef(null);
-  const inputRef = useRef(null);
+import React, { useEffect, useRef } from "react";
+import banner from "../images/banner.jpeg";
+import { useNavigate } from "react-router-dom";
+import gsap from "gsap";
+import useSound from 'use-sound';
+import boop from '../sounds/sword.mp3';
+import EventDisplay from "./child-components/eventDisplay";
 
-  useEffect(()=>{
-    const t1=gsap.timeline();
-    t1.from(listRef1.current,{x:-500,opacity: 0,duration: 0.5,ease: 'power2.out'});
-    t1.from(listRef2.current,{x:-500,opacity: 0,duration: 0.5,ease: 'power2.out'});
-    t1.from(listRef3.current,{x:-500,opacity: 0,duration: 0.5,ease: 'power2.out'});
-    t1.from(listRef4.current,{x:-500,opacity: 0,duration: 0.5,ease: 'power2.out'});
-    t1.from(inputRef.current,{y:-100,opacity: 0,scale:0.5,duration: 1,ease: 'power2.in'});
-  },[])
+const Home = () => {
+  const navigate = useNavigate();
+  const imgRef = useRef(null);
+  const textRef = useRef(null);
+  const input1Ref = useRef(null);
+  const input2Ref = useRef(null);
+  const input3Ref = useRef(null);
+  const [Sound] = useSound(boop);
+  const sword_sound = useRef(null);
+
+
+
+  useEffect(() => {
+    const t2 = gsap.timeline();
+    
+    t2.from(sword_sound.current, {
+      onStart: () => {
+        Sound(); 
+      },
+    });
+  }, [Sound]);
+
+  useEffect(() => {
+    const text = "Explore , Register , Participate";
+    const chars = text.split("");
+    textRef.current.innerHTML = "";
+
+    chars.forEach((char, i) => {
+      const span = document.createElement("span");
+      span.innerHTML = char;
+      textRef.current.appendChild(span);
+    });
+
+    const tl = gsap.timeline();
+    tl.from(imgRef.current, {x: 500,opacity: 0,duration: 2,ease: "power2.out",});
+    const textTimeline = gsap.timeline({repeat: -1,yoyo: true,});
+    textTimeline.fromTo(
+      textRef.current.children,
+      { opacity: 0, x: -20 },{ opacity: 1,x: 0,duration: 0.5,stagger: 0.1,ease: "power2.out", }
+    )
+    .to(textRef.current.children, {opacity: 0,x: 20,duration: 0.5,stagger: 0.1,ease: "power2.in",delay: 2,});
+    tl.from(input1Ref.current, {x: 0, opacity:0, duration:0.5, ease: "power2.out",scale:0.5,})
+    tl.from(input2Ref.current, {x: 0, opacity:0, duration:0.5, ease: "power2.out",scale:0.5,})
+    tl.from(input3Ref.current, {x: 0, opacity:0, duration:0.5, ease: "power2.out",scale:0.5,})
+
+    return () => {
+      tl.kill();
+      textTimeline.kill();
+    };
+  }, []);
+
   return (
-    <>
-      <div className="flex sticky top-0 items-center justify-between md:px-16 md:py-5 px-2 py-3 w-full bg-black z-10 border-b">
-        <img className="md:h-16 md:w-32 h-16 w-28" src={logo} alt="loading" />
-        <nav className="hidden md:block">
-          <ul className="flex gap-6">
-            <li ref={listRef1}  className="nav-link">
-              <Link to="/events">Events</Link>
-            </li>
-            <li ref={listRef2} className="nav-link">
-              <Link to="workshops">Workshops</Link>
-            </li>
-            <li ref={listRef3} className="nav-link">
-              <Link to="contact">Contact Us</Link>
-            </li>
-            <li ref={listRef4} className="nav-link">
-              <Link to="About">About Us</Link>
-            </li>
-          </ul>
-        </nav>
-        {toggleMenu && (
-          <nav className="md:hidden block">
-            <ul className="flex flex-col fixed h-52 overflow-auto w-full bg-black top-20 left-0 p-5 justify-between ">
-              <li className="nav-link">
-                <Link to="/events" className="flex items-center space-x-10">
-                  <MdEmojiEvents className="text-white" />
-                  <span>Events</span>
-                </Link>
-              </li>
-              <li className="nav-link">
-                <Link to="workshops" className="flex items-center space-x-10">
-                  <GrWorkshop className="text-white" />
-                  <span>Workshops</span>
-                </Link>
-              </li>
-              <li className="nav-link">
-                <Link to="contact" className="flex items-center space-x-10">
-                  <RiContactsFill className="text-white" />
-                  <span>Contact Us</span>
-                </Link>
-              </li>
-              <li className="nav-link">
-                <Link to="about" className="flex items-center space-x-10">
-                  <FcAbout className="text-white" />
-                  <span>About Us</span>
-                </Link>
-              </li>
-            </ul>
-          </nav>
-        )}
-        <div className="flex md:gap-5 gap-3 items-center">
-          <input ref={inputRef}
-            className="bg-custom-black w-36 h-10 md:w-56 border-2 border-gray-400 rounded-lg text-white px-2 hover:border-custom-red placeholder-slate-200 hover:placeholder-white hover:bg-gray-900 hover:scale-105"
-            type="text"
-            placeholder="    Search"
-          />
-          <IoMdContact className="h-8 w-8 text-white hover:text-custom-red" />
-          <button
-            onClick={() => setToggleMenu(!toggleMenu)}
-            className="block md:hidden text-white hover:text-custom-red"
-          >
-            <IoMenu className="h-8 w-8" />
-          </button>
+    <div className="w-full h-full pb-10 bg-black overflow-hidden">
+      <div className="flex w-full md:flex-row flex-col md:justify-around">
+        <div className="flex justify-center text-center flex-col p-5">
+          <h1 ref={sword_sound} className="text-4xl md:text-7xl px-20 font-bebas text-custom-red">
+            EVENTS
+          </h1>
+          <p ref={textRef} className="text-white font-serif text-xl">.</p>
+          <p className="text-gray-500 font-flower pt-3">
+            Discover new events happening around you
+          </p>
+          <p className="text-gray-500 font-flower">
+            Stay Busy, Stay Inspired, Book Events to Build Your Talent! 💯
+          </p>
         </div>
+
+        <img ref={imgRef} src={banner} alt="loading" className="h-48" />
       </div>
-      {toggleMenu && <div className=" mt-48 "></div>}
-      <Outlet />
-    </>
+      <div className="flex justify-center md:justify-end md:me-20 flex-col md:flex-row px-10 gap-5 py-5">
+        <input ref={input1Ref} className="input" type="text" placeholder="Find Events" />
+        <select ref={input2Ref} id="departments" name="departments" className="input-select">
+          <option value="" disabled selected>
+            Select Department
+          </option>
+          <option value="cse">Computer Science and Engineering</option>
+          <option value="it">Information Technology</option>
+          <option value="ece">Electronics and Communication Engineering</option>
+          <option value="eee">Electrical and Electronics Engineering</option>
+          <option value="mech">Mechanical Engineering</option>
+          <option value="civil">Civil Engineering</option>
+          <option value="auto">Automobile Engineering</option>
+          <option value="chemical">Chemical Engineering</option>
+        </select>
+        <button ref={input3Ref} className="btn" onClick={() => navigate("addEvents")}>
+          Add Event
+        </button>
+      </div>
+
+      <EventDisplay/>
+    </div>
   );
 };
 

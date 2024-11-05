@@ -38,8 +38,8 @@ const Footer = () => {
           <div>
            <ul>
               <li className="nav-link flex items-center gap-2"><CgProfile className="text-white" />DIVAKAR S</li>
-              <li className="nav-link">22ITR024</li>
-              <li className="nav-link">7708692426</li>
+              <li className="nav-link flex items-center gap-2"><CgProfile className="text-white" />MADANIKA</li>
+              <li className="nav-link flex items-center gap-2"><CgProfile className="text-white" />DHARANISH S L</li>
               <li className="nav-link">KONGU ENGINEERING COLLEGE</li>
             </ul>
           </div>

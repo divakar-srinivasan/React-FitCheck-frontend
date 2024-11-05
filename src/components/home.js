@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from "react";
-import banner from "../images/banner.jpeg";
 import { useNavigate } from "react-router-dom";
 import gsap from "gsap";
 import useSound from 'use-sound';
 import boop from '../sounds/sword.mp3';
-import EventDisplay from "./child-components/eventDisplay";
+import EventDisplay from "./child-components/postDisplay";
+import Timer from "./child-components/timer"
 
 const Home = () => {
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ const Home = () => {
   }, [Sound]);
 
   useEffect(() => {
-    const text = "Explore , Register , Participate";
+    const text = "Explore , Register , Workout";
     const chars = text.split("");
     textRef.current.innerHTML = "";
 
@@ -61,37 +61,13 @@ const Home = () => {
     <div className="w-full h-full pb-10 bg-black overflow-hidden">
       <div className="flex w-full md:flex-row flex-col md:justify-around">
         <div className="flex justify-center text-center flex-col p-5">
-          <h1 ref={sword_sound} className="text-4xl md:text-7xl px-20 font-bebas text-custom-red">
-            EVENTS
-          </h1>
-          <p ref={textRef} className="text-white font-serif text-xl">.</p>
-          <p className="text-gray-500 font-flower pt-3">
-            Discover new events happening around you
-          </p>
-          <p className="text-gray-500 font-flower">
-            Stay Busy, Stay Inspired, Book Events to Build Your Talent! 💯
-          </p>
+        <h1 ref={sword_sound} className="text-4xl md:text-7xl px-20 font-bebas text-custom-red"> FITCHECK </h1> <p ref={textRef} className="text-white font-serif text-xl">Track Your Fitness Journey</p> <p className="text-gray-500 font-flower pt-3"> Discover new fitness challenges and activities around you </p> <p className="text-gray-500 font-flower"> Stay Active, Stay Motivated, Achieve Your Fitness Goals! 💪🏃‍♂️</p>         
         </div>
-
-        <img ref={imgRef} src={banner} alt="loading" className="h-48" />
+        <Timer ref={imgRef} />
       </div>
       <div className="flex justify-center md:justify-end md:me-20 flex-col md:flex-row px-10 gap-5 py-5">
-        <input ref={input1Ref} className="input" type="text" placeholder="Find Events" />
-        <select ref={input2Ref} id="departments" name="departments" className="input-select">
-          <option value="" disabled selected>
-            Select Department
-          </option>
-          <option value="cse">Computer Science and Engineering</option>
-          <option value="it">Information Technology</option>
-          <option value="ece">Electronics and Communication Engineering</option>
-          <option value="eee">Electrical and Electronics Engineering</option>
-          <option value="mech">Mechanical Engineering</option>
-          <option value="civil">Civil Engineering</option>
-          <option value="auto">Automobile Engineering</option>
-          <option value="chemical">Chemical Engineering</option>
-        </select>
         <button ref={input3Ref} className="btn" onClick={() => navigate("addEvents")}>
-          Add Event
+          Add Post
         </button>
       </div>
 

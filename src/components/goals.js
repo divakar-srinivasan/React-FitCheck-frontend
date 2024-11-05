@@ -102,14 +102,14 @@ const Goals = () => {
   return (
     <div className="bg-goals w-full h-auto p-20 flex flex-col justify-center items-center">
       {step === 1 && (
-        <div className="shadow-lg bg-color-goals shadow-gray-700 hover:shadow-xl hover:shadow-slate-700 w-1/2 h-auto p-10 flex flex-col items-center rounded-md">
-          <h1 className="text-xl font-bold ">What’s your first name?</h1>
-          <h1 className="text-gray-500 font-light">We’re happy you’re here.</h1>
-          <h1 className="text-gray-500 font-light">
+        <div className="signin-container space-y-4 shadow-lg shadow-gray-700 hover:shadow-xl hover:shadow-slate-700  flex flex-col items-center rounded-md">
+          <h1 className="text-xl font-bold text-white">What’s your first name?</h1>
+          <h1 className="text-gray-100 font-light">We’re happy you’re here.</h1>
+          <h1 className="text-gray-100 font-light">
             Let’s get to know a little about you.
           </h1>
           <input
-            className="mt-8 border-2 border-solid border-gray-400 p-2 outline-none rounded-md w-96"
+            className="input mt-5"
             type="text"
             placeholder="First Name"
             name="firstName"
@@ -117,7 +117,7 @@ const Goals = () => {
             onChange={handleChange}
           />
           <input
-            className="mb-20 mt-10 bg-color-goals border-2 border-solid border-gray-400 p-2 outline-none rounded-md w-96"
+          className="input"
             type="text"
             placeholder="Last Name"
             name="lastName"
@@ -128,9 +128,9 @@ const Goals = () => {
       )}
 
       {step === 2 && (
-        <div className="shadow-lg bg-color-goals shadow-gray-700 hover:shadow-xl hover:shadow-slate-700 w-1/2 h-auto p-10 flex flex-col items-center rounded-md">
-          <h1 className="text-xl font-bold ">Thanks! Now for your goals.</h1>
-          <h1 className="text-gray-500 mb-10 font-light">
+        <div className="shadow-lg signin-container  shadow-gray-700 hover:shadow-xl hover:shadow-slate-700 flex flex-col items-center ">
+          <h1 className="text-xl font-bold text-white">Thanks! Now for your goals.</h1>
+          <h1 className="text-gray-100 mb-10 font-light">
             Select one goal that is important to you.
           </h1>
           <div className="flex flex-col space-y-5">
@@ -138,10 +138,8 @@ const Goals = () => {
               <button
                 key={index}
                 onClick={() => setFormData({ ...formData, goals })}
-                className={`w-96 p-3 border rounded-md text-left ${
+                className={`input ${
                   formData.goals === goals
-                    ? "bg-blue-100 border-blue-500"
-                    : "border-gray-300"
                 }`}
               >
                 {goals}
@@ -152,30 +150,30 @@ const Goals = () => {
       )}
 
       {step === 3 && (
-        <div className="shadow-lg bg-color-goals text-center p-10 shadow-gray-700 hover:shadow-xl hover:shadow-slate-700 w-1/2 h-auto flex flex-col items-center rounded-md">
-          <h1 className="text-xl font-bold">
+        <div className="shadow-lg  signin-container text-center p-10 shadow-gray-700 hover:shadow-xl hover:shadow-slate-700  flex flex-col items-center rounded-md">
+          <h1 className="text-2xl text-white font-bold font-libre">
             Great! You’ve just taken a big step on your journey.
           </h1>
-          <h1 className="text-gray-700 font-light my-4">
+          <h1 className="text-gray-100  my-4">
             Did you know that tracking your food is a scientifically proven
             method to being successful?
           </h1>
-          <h1 className="text-gray-700 font-light">
+          <h1 className="  text-orange-100">
             It’s called “self-monitoring,” and the more consistent you are, the
             more likely you are to hit your goals.
           </h1>
-          <h1 className="text-gray-700 font-light my-4">
+          <h1 className="font-bold text-yellow-300 my-4">
             Now, let’s talk about your goal to {formData.goal}.
           </h1>
         </div>
       )}
 
       {step === 4 && (
-        <div className="shadow-lg bg-color-goals shadow-gray-700 hover:shadow-xl hover:shadow-slate-700 w-1/2 h-auto p-10 flex flex-col items-center rounded-md">
-          <h1 className="text-xl font-bold ">
+        <div className="shadow-lg signin-container text-center  shadow-gray-700 hover:shadow-xl hover:shadow-slate-700  flex flex-col items-center  ">
+          <h1 className="text-2xl text-white font-bold">
             What is your baseline activity level?
           </h1>
-          <h1 className="text-gray-500 mb-10 font-light">
+          <h1 className="text-gray-100 mb-10 font-light">
             Select your baseline activity level.
           </h1>
           <div className="flex flex-col space-y-5">
@@ -185,7 +183,7 @@ const Goals = () => {
                 onClick={() =>
                   setFormData({ ...formData, baselineActivity: value })
                 }
-                className={`w-96 p-3 border rounded-md text-left ${
+                className={`input ${
                   formData.baselineActivity === value
                     ? "bg-blue-100 border-blue-500"
                     : "border-gray-300"
@@ -199,9 +197,9 @@ const Goals = () => {
       )}
 
       {step === 5 && (
-        <div className="shadow-lg bg-color-goals text-center p-20 shadow-gray-700 hover:shadow-xl hover:shadow-slate-700 w-1/2 h-auto flex flex-col items-center rounded-md">
-          <h1 className="text-xl p-10 font-bold">Super</h1>
-          <h1 className="text-gray-700 p-10 font-light">
+        <div className="shadow-lg signin-container text-center p-20 shadow-gray-700 hover:shadow-xl hover:shadow-slate-700  flex flex-col items-center">
+          <h1 className="text-5xl text-green-500 p-10  font-bold">Super!</h1>
+          <h1 className="text-white p-10 t">
             Let’s get into the specifics so we can build your personalized plan.
           </h1>
         </div>
@@ -209,12 +207,12 @@ const Goals = () => {
 
       {step === 6 && (
         <form
-          className="shadow-lg m-5 bg-color-goals shadow-gray-700 hover:shadow-xl hover:shadow-slate-700 w-1/2 h-auto p-10 flex flex-col rounded-md"
+          className="shadow-lg m-5 signin-container shadow-gray-700 hover:shadow-xl hover:shadow-slate-700  flex flex-col "
           onSubmit={handleSubmit}
         >
-          <h1 className="text-xl font-bold mb-5">Sex?</h1>
+          <h1 className="text-xl text-white font-bold mb-5">Sex?</h1>
           <div className="space-x-10">
-            <label>
+            <label className="text-white hover:scale-105">
               <input
                 type="radio"
                 name="sex"
@@ -224,7 +222,7 @@ const Goals = () => {
               />{" "}
               Male
             </label>
-            <label>
+            <label className="text-white ">
               <input
                 type="radio"
                 name="sex"
@@ -237,9 +235,9 @@ const Goals = () => {
           </div>
 
           <div>
-            <h1 className="text-xl my-7 font-bold mb-5">Date of Birth?</h1>
+            <h1 className="text-xl text-white my-7 font-bold mb-5">Date of Birth?</h1>
             <input
-              className="border-2 border-solid border-gray-400 p-2 outline-none rounded-md w-96"
+              className="input"
               type="date"
               name="dob"
               value={formData.dob}
@@ -248,9 +246,9 @@ const Goals = () => {
           </div>
 
           <div>
-            <h1 className="text-xl my-7 font-bold mb-5">Height?</h1>
+            <h1 className="text-xl text-white my-7 font-bold mb-5">Height?</h1>
             <input
-              className="border-2 border-solid border-gray-400 p-2 outline-none rounded-md w-72"
+              className="input"
               type="number"
               placeholder="Height in cm"
               name="height"
@@ -260,9 +258,9 @@ const Goals = () => {
           </div>
 
           <div>
-            <h1 className="text-xl my-5 font-bold mb-5">Current Weight?</h1>
+            <h1 className="text-xl text-white my-5 font-bold mb-5">Current Weight?</h1>
             <input
-              className="border-2 border-solid border-gray-400 p-2 outline-none rounded-md w-72"
+              className="input"
               type="number"
               placeholder="Current weight in lbs"
               name="currentWeight"
@@ -272,9 +270,9 @@ const Goals = () => {
           </div>
 
           <div>
-            <h1 className="text-xl my-5 font-bold mb-5">Goal Weight?</h1>
+            <h1 className="text-xl my-5 text-white font-bold mb-5">Goal Weight?</h1>
             <input
-              className="border-2 border-solid border-gray-400 p-2 outline-none rounded-md w-72"
+              className="input"
               type="number"
               placeholder="Goal weight in lbs"
               name="goalWeight"
@@ -292,11 +290,11 @@ const Goals = () => {
         </form>
       )}
 
-      <div className="flex my-10">
+      <div className="flex my-10 space-x-20">
         <button
           disabled={step === 1}
           onClick={handleBack}
-          className={`mr-4 px-6 py-2 bg-gray-200 text-gray-700 rounded-lg ${
+          className={`btn ${
             step === 1 && "cursor-not-allowed"
           }`}
         >
@@ -305,7 +303,7 @@ const Goals = () => {
         {step < 6 && (
           <button
             onClick={handleNext}
-            className="px-6 py-2 bg-blue-500 text-white rounded-lg"
+            className="btnx bg-blue-500 hover:bg-blue-600"
           >
             Next
           </button>

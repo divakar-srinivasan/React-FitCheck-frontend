@@ -32,6 +32,9 @@
 .btn{
     @apply bg-color text-white h-12 w-24 rounded-md font-bold hover:bg-red-700 hover:scale-105 
 }
+.btnx{
+    @apply text-white h-12 w-24 rounded-md font-bold  hover:scale-105 
+}
 .signin-btn{
     @apply bg-color text-white h-10 w-72 rounded-md font-bold hover:bg-red-700 hover:scale-105 
 }
@@ -87,9 +90,8 @@
     width: 100%;
     overflow: auto;
 
-  }.bg-color-goals{background-color: rgba(255, 255, 255, 1);}
+  }
   .about-bg {
-    background-image: url('./images/eventix-bg1.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -132,12 +134,31 @@
     height:100%;width: 100%; 
 }
 .bg-add-event {
-    background-image: url('./images/eventix-bg1.png');
+    background-image: url('./images/bmr.jpg');
     background-size: cover;
     background-position: center; 
     background-repeat: no-repeat;
 
 }
+.bg-timer {
+    background-image: url('./images/timer.jpg');
+    height: 400px;
+    width: 400px;
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+
+}
+.bg-bmr {
+    background-image: url('./images/bmr.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden; 
+  }
 
 
 

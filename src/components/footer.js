@@ -29,10 +29,10 @@ const Footer = () => {
           </div>
           <div>
           <ul>
-              <li className="nav-link">Events</li>
-              <li className="nav-link">Workshops</li>
-              <li className="nav-link">News</li>
-              <li className="nav-link">Gallery</li>
+              <li className="nav-link">Home</li>
+              <li className="nav-link">Calculator</li>
+              <li className="nav-link">Health</li>
+              <li className="nav-link">Progress</li>
             </ul>
           </div>
           <div>

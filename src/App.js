@@ -22,6 +22,7 @@ import Bmi from "./components/child-components/bmi"
 import Bf from "./components/child-components/bf"
 import Hr from "./components/child-components/hr"
 import Cart from "./components/child-components/cart"
+import Progress from "./components/child-components/progress";
 import AOS from "aos";
 import Rm from "./components/child-components/rm"
 import "aos/dist/aos.css";
@@ -57,6 +58,7 @@ function App() {
             <Route path="nutrition" element={<Nutrition />} />
             <Route path="recipe" element={<Recipe />} />
           </Route>
+          <Route path="progress" element={<Progress />} />
           <Route path="cart" element={<Cart />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />

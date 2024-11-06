@@ -14,22 +14,22 @@ import img12 from "../../images/cart/img12.jpeg"
 import img13 from "../../images/cart/img13.jpeg"
 
 
-// Sample data for gym tools
 const gymTools = [
-    { id: 1, img: img1, name: 'Dumbbell', description: '10kg dumbbell', price: 2000 },
-    { id: 2, img: img2, name: 'Yoga Mat', description: 'Non-slip mat', price: 1500 },
-    { id: 3, img: img3, name: 'Kettlebell', description: '15kg kettlebell', price: 2500 },
-    { id: 4, img: img4, name: 'Treadmill', description: 'Electric treadmill', price: 25000 },
-    { id: 5, img: img5, name: 'Resistance Bands', description: 'Set of 5 bands', price: 300 },
-    { id: 6, img: img6, name: 'Pull-Up Bar', description: 'Doorway pull-up bar', price: 350 },
-    { id: 7, img:img7, name: 'Medicine Ball', description: '10kg medicine ball', price: 400 },
-    { id: 8, img: img8, name: 'Stationary Bike', description: 'Indoor exercise bike', price: 1500 },
-    { id: 9, img: img9, name: 'Rowing Machine', description: 'Foldable rowing machine', price: 2000 },
-    { id: 10, img: img10, name: 'Smith Machine', description: 'Multi-functional smith machine', price: 5000 },
-    { id: 11, img: img11, name: 'Leg Press Machine', description: 'Adjustable leg press machine', price: 4500 },
-    { id: 12, img: img12, name: 'Chest Press Machine', description: 'Incline chest press machine', price: 4000 },
-    { id: 13, img:img13, name: 'Cable Machine', description: 'Adjustable cable machine', price: 3500 }
-  ];
+    { id: 1, img: img1, name: 'Dumbbell', description: '10kg ergonomic dumbbell for strength training and muscle toning.', price: 2000 },
+    { id: 2, img: img2, name: 'Yoga Mat', description: 'Premium non-slip yoga mat for a comfortable and stable workout.', price: 1500 },
+    { id: 3, img: img3, name: 'Kettlebell', description: '15kg high-quality kettlebell designed for full-body workouts.', price: 2500 },
+    { id: 4, img: img4, name: 'Treadmill', description: 'Advanced electric treadmill with multiple workout programs and incline settings.', price: 25000 },
+    { id: 5, img: img5, name: 'Resistance Bands', description: 'Set of 5 durable resistance bands perfect for strength training and flexibility exercises.', price: 300 },
+    { id: 6, img: img6, name: 'Pull-Up Bar', description: 'Sturdy doorway pull-up bar for upper body and core strengthening.', price: 350 },
+    { id: 7, img: img7, name: 'Medicine Ball', description: '10kg medicine ball ideal for dynamic strength and power workouts.', price: 400 },
+    { id: 8, img: img8, name: 'Stationary Bike', description: 'Compact indoor exercise bike with adjustable resistance levels for a cardio workout.', price: 1500 },
+    { id: 9, img: img9, name: 'Rowing Machine', description: 'Foldable rowing machine for a full-body cardiovascular workout.', price: 2000 },
+    { id: 10, img: img10, name: 'Smith Machine', description: 'Multi-functional smith machine for a comprehensive strength training experience.', price: 5000 },
+    { id: 11, img: img11, name: 'Leg Press Machine', description: 'Adjustable leg press machine for targeting lower body muscles with precision.', price: 4500 },
+    { id: 12, img: img12, name: 'Chest Press Machine', description: 'Incline chest press machine to build and tone pectoral muscles.', price: 4000 },
+    { id: 13, img: img13, name: 'Cable Machine', description: 'Versatile cable machine with multiple attachments for various strength exercises.', price: 3500 }
+];
+
   
 
   const ProductCard = ({ product, addToCart }) => (

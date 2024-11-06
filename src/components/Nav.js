@@ -12,16 +12,16 @@ import gsap from "gsap";
 const Home = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [showLogout, setShowLogout] = useState(false);
-  const listRefs = [useRef(null), useRef(null),useRef(null), useRef(null),useRef(null), useRef(null)];
+  const listRefs = [useRef(null), useRef(null),useRef(null), useRef(null),useRef(null),useRef(null), useRef(null)];
   const inputRef = useRef(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     const t1 = gsap.timeline();
     listRefs.forEach((ref, index) => {
-      t1.from(ref.current, { x: -500, opacity: 0, duration: 0.5, ease: "power2.out", delay: index * 0.2 });
+      t1.from(ref.current, { x: -500, opacity: 0, duration: 0.2, ease: "power2.out", delay: index * 0.2 });
     });
-    t1.from(inputRef.current, { y: -100, opacity: 0, scale: 0.5, duration: 1, ease: "power2.in" });
+    t1.from(inputRef.current, { y: -100, opacity: 0, scale: 0.5, duration: 0.5, ease: "power2.in" });
   }, []);
 
   const handleLogout = () => {
@@ -45,12 +45,15 @@ const Home = () => {
               <Link to="health">Health</Link>
             </li>
             <li ref={listRefs[3]} className="nav-link">
-              <Link to="cart">Cart</Link>
+              <Link to="progress">Progress</Link>
             </li>
             <li ref={listRefs[4]} className="nav-link">
-              <Link to="contact">Contact Us</Link>
+              <Link to="cart">Cart</Link>
             </li>
             <li ref={listRefs[5]} className="nav-link">
+              <Link to="contact">Contact Us</Link>
+            </li>
+            <li ref={listRefs[6]} className="nav-link">
               <Link to="about">About Us</Link>
             </li>
           </ul>
